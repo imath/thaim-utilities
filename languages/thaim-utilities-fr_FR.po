@@ -1,0 +1,280 @@
+# Copyright (C) 2014 Thaim Utilities
+# This file is distributed under the same license as the Thaim Utilities package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Thaim Utilities 1.0.0\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/thaim-utilities\n"
+"POT-Creation-Date: 2014-04-21 16:43:02+00:00\n"
+"PO-Revision-Date: 2014-04-21 18:43+0100\n"
+"Last-Translator: imath <mathchristo@yahoo.fr>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.4\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: includes/activity.php:114
+msgid "Twitter Username"
+msgstr "Nom d&#39;utilisateur Twitter"
+
+#: includes/activity.php:120
+msgid "Twitter API credentials"
+msgstr "Paramètres API Twitter"
+
+#: includes/activity.php:126
+msgid "Import WordPress.org Support replies"
+msgstr "Importer les réponses de Forums support WordPress.org"
+
+#: includes/activity.php:145
+msgid "Twitter username"
+msgstr "nom d&#39;utilisateur Twitter"
+
+#: includes/activity.php:159
+msgid "API Key"
+msgstr "Clé API"
+
+#: includes/activity.php:160
+msgid "API Secret"
+msgstr "Secret API"
+
+#: includes/activity.php:161
+msgid "Access token"
+msgstr "Token d&#39;accès"
+
+#: includes/activity.php:162
+msgid "Access token secret"
+msgstr "Secret token d&#39;accès"
+
+#: includes/activity.php:169
+msgid ""
+"Fill these informations respecting the order with a line breack between "
+"each, empty to disable."
+msgstr ""
+"Remplir ces informations en respectant l&#39;ordre et en insérant un retour "
+"chariot après chaque élément, vider le champ pour désactiver."
+
+#: includes/activity.php:186
+msgid ""
+"The replies you made in your support forums will be saved as BuddyPress "
+"Activities"
+msgstr ""
+"Les réponses que vous apportez à des forums support de vos plugins seront "
+"sauvegardées en tant qu&#39;activités BuddyPress"
+
+#: includes/activity.php:366
+msgid "%s retweeted %s"
+msgstr "%s a retweeté %s"
+
+#: includes/activity.php:368
+msgid "%s tweeted"
+msgstr "%s a tweeté"
+
+#: includes/activity.php:494
+msgid "View Posts about the plugin"
+msgstr "Voir les articles en relation avec le plugin"
+
+#: includes/activity.php:497
+msgid "View on WordPress.org"
+msgstr "Voir sur WordPress.org"
+
+#: includes/activity.php:500
+msgid "%s gave a support reply on %s about %s"
+msgstr "%s est intervenu sur le forum support de %s à propos de %s"
+
+#: includes/activity.php:582 includes/widget.php:151
+msgid "Tweets"
+msgstr "Tweets"
+
+#: includes/activity.php:590 includes/widget.php:154
+msgid "Plugins support"
+msgstr "Support de Plugins"
+
+#: includes/admin.php:68
+msgid "Thaim Utilities Settings"
+msgstr "Réglages des utilitaires de Thaim"
+
+#: includes/admin.php:76
+msgid "WordPress.org account"
+msgstr "compte WordPress.org"
+
+#: includes/admin.php:82
+msgid "Number of WordPress plugins to display"
+msgstr "Nombre de plugins à afficher"
+
+#: includes/admin.php:88
+msgid "List your github repos"
+msgstr "Lister vos dépôts Github"
+
+#: includes/admin.php:120
+msgid "Define the Utilities to use."
+msgstr "Définir les utilitaires."
+
+#: includes/admin.php:135
+msgid "WordPress.org username"
+msgstr "Nom d&#39;utilisateur WordPress"
+
+#: includes/admin.php:150
+msgid "(up to 20)"
+msgstr "(jusqu&#39;à 20)"
+
+#: includes/admin.php:165
+msgid "Github.com username"
+msgstr "Nom d&#39;utilisateur Github.com"
+
+#: includes/loader.php:25 includes/loader.php:91 includes/loader.php:157
+msgid "Repositories"
+msgstr "Dépôts"
+
+#: includes/loader.php:115 includes/loader.php:165
+msgid "WordPress"
+msgstr "WordPress"
+
+#: includes/loader.php:125 includes/loader.php:173
+msgid "Github"
+msgstr "Github"
+
+#: includes/loader.php:224
+msgid "Please define your WordPress.org settings"
+msgstr "Merci de définir vos réglages WordPress.org"
+
+#: includes/loader.php:242
+msgid "Please define your Github.com settings"
+msgstr "Merci de définir vos réglages Github.com"
+
+#: includes/loops.php:22 includes/loops.php:76
+msgid "active %s"
+msgstr "actif %s"
+
+#: includes/loops.php:53
+msgid "Oops, seems WordPress.org is not reachable..."
+msgstr "Oops, on dirait que WordPress.org ne répond pas..."
+
+#: includes/loops.php:104
+msgid "Oops, seems Github repos are not reachable..."
+msgstr "Oops, on dirait que les dépôts Github ne répondent pas..."
+
+#: includes/template.php:58
+msgctxt "Plugins pagination previous text"
+msgid "&larr;"
+msgstr "&larr;"
+
+#: includes/template.php:59
+msgctxt "Plugins pagination next text"
+msgid "&rarr;"
+msgstr "&larr;"
+
+#: includes/template.php:192 includes/template.php:460
+msgid "not yet active"
+msgstr "inactif"
+
+#: includes/template.php:211
+msgid "Average of %s stars out of %s votes"
+msgstr "Moyenne de %s stars sur %s votes"
+
+#: includes/template.php:270
+msgid "Latest version: %s"
+msgstr "Dernière version: %s"
+
+#: includes/template.php:279
+msgid "Requires: %s"
+msgstr "Requiert: %s"
+
+#: includes/template.php:290
+msgid "Downloaded %s times"
+msgstr "Téléchargé %s fois"
+
+#: includes/template.php:302
+msgid "<a href=\"%s\" title=\"Download plugin\" class=\"button\">Download</a>"
+msgstr ""
+"<a href=\"%s\" title=\"Télécharger le plugin\" class=\"button\">Télécharger</"
+"a>"
+
+#: includes/template.php:324
+msgid ""
+"<a href=\"%s\" title=\"View Posts about the plugin\" class=\"button\">Posts</"
+"a>"
+msgstr ""
+"<a href=\"%s\" title=\"Voir les articles liés au plugin\" class=\"button"
+"\">Articles</a>"
+
+#: includes/template.php:486
+msgid "<a href=\"%s\" title=\"Download Git\" class=\"button\">Download</a>"
+msgstr ""
+"<a href=\"%s\" title=\"Télécharger le dépôt\" class=\"button\">Télécharger</"
+"a>"
+
+#: includes/template.php:540
+msgid "View Activity"
+msgstr "Voir l&#39;activité"
+
+#: includes/widget.php:23
+msgid "Latest activities"
+msgstr "Latest activities"
+
+#: includes/widget.php:25
+msgctxt "widget name"
+msgid "(Thaim Utilities) Widget"
+msgstr "(Thaim Utilities) Widget"
+
+#: includes/widget.php:55
+msgid "Latest Activities"
+msgstr "Dernières Activités"
+
+#: includes/widget.php:144
+msgid "Title:"
+msgstr "Titre : "
+
+#: includes/widget.php:145
+msgid "Activity types"
+msgstr "Types Activité"
+
+#: includes/widget.php:148
+msgid "All types"
+msgstr "Tous types"
+
+#: includes/widget.php:158
+msgid "Amount:"
+msgstr "Nombre :"
+
+#: thaim-utilities.php:166
+msgid "Thaim Utilities requires at least version %s of BuddyPress."
+msgstr "Thaim Utilities requiert à minima la version %s de BuddyPress."
+
+#: thaim-utilities.php:176
+msgid ""
+"Thaim Utilities requires to be activated on the blog where BuddyPress is "
+"activated."
+msgstr ""
+"Thaim Utilities a besoin d&#39;être activé sur le même blog que BuddyPress."
+
+#: thaim-utilities.php:180
+msgid ""
+"Thaim Utilities and BuddyPress need to share the same network configuration."
+msgstr "Thaim Utilities a besoin de partager les mêmes réglages de réseau."
+
+#. Plugin Name of the plugin/theme
+msgid "Thaim Utilities"
+msgstr "Thaim Utilities"
+
+#. Plugin URI of the plugin/theme
+msgid "https://github.com/imath/thaim-utilities"
+msgstr "https://github.com/imath/thaim-utilities"
+
+#. Description of the plugin/theme
+msgid ""
+"A BuddyPress component to back up tweets and WordPress support forums in "
+"activities & to sync WordPress and github repos"
+msgstr ""
+"Un composant BuddyPress pour faire une sauvegarde de ses Tweets, des "
+"réponses aux forums support de vos plugins WordPress et pour afficher vos "
+"dépôts WordPress.org et Github.com"
+
+#. Author of the plugin/theme
+msgid "imath"
+msgstr "imath"
+
+#. Author URI of the plugin/theme
+msgid "http://imathi.eu"
+msgstr "http://imathi.eu"
