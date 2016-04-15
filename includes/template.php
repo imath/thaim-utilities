@@ -3,7 +3,7 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 /**
  * Template !
- * 
+ *
  * @package Thaim Utilities
  * @subpackage Template
  * @since   1.0.0
@@ -23,32 +23,32 @@ class Thaim_Utilities_WP_Org_Api_Template {
 	var $total_plugin_count;
 
 	function __construct( $args = '', $action = 'query_plugins', $page_arg = 'spage' ) {
-		
+
 		include_once( ABSPATH . 'wp-admin/includes/plugin-install.php' );
-		
-		$defaults = array( 'page' => 1, 
-					       'per_page' => 20, 
-					       'author' => 'imath', 
-					       'fields' => array( 'description' => true, 
-										  'sections' => true, 
+
+		$defaults = array( 'page' => 1,
+					       'per_page' => 20,
+					       'author' => 'imath',
+					       'fields' => array( 'description' => true,
+										  'sections' => true,
 										  'tested' => true,
-										  'requires' => true, 
-										  'rating' => true, 
-										  'downloaded' => true, 
-										  'downloadlink' => true, 
-										  'last_updated' => true, 
-										  'homepage' => true, 
-										  'tags' => true ) 
-						);	
-						
+										  'requires' => true,
+										  'rating' => true,
+										  'downloaded' => true,
+										  'downloadlink' => true,
+										  'last_updated' => true,
+										  'homepage' => true,
+										  'tags' => true )
+						);
+
 		$r = wp_parse_args( $args, $defaults );
-		
+
 		$this->plugins = plugins_api( $action, $r );
-		
+
 		$this->plugins = $this->plugins->plugins;
-		
+
 		$this->plugin_count = $this->total_plugin_count = count( $this->plugins );
-		
+
 		if ( (int) $this->total_plugin_count && (int) $this->pag_num ) {
 			$this->pag_links = paginate_links( array(
 				'base'      => add_query_arg( $page_arg, '%#%' ),
@@ -60,7 +60,7 @@ class Thaim_Utilities_WP_Org_Api_Template {
 				'mid_size'   => 1
 			) );
 		}
-		
+
 	}
 
 	function has_plugins() {
@@ -108,30 +108,30 @@ class Thaim_Utilities_WP_Org_Api_Template {
 
 function thaim_utitilities_has_plugins( $args = '' ) {
 	global $plugins_template;
-	
+
 	$author       = bp_get_option( 'thaim_link_wordpress_org', 'imath' );
 	$page         = 1;
 	$per_page     = bp_get_option( 'thaim_perpage_wordpress_org', 20 );
-	
-	$defaults = array( 'page' => $page, 
-					   'per_page' => $per_page, 
-					   'author' => $author, 
-					   'fields' => array( 'description' => false, 
-					                      'sections' => false, 
+
+	$defaults = array( 'page' => $page,
+					   'per_page' => $per_page,
+					   'author' => $author,
+					   'fields' => array( 'description' => false,
+					                      'sections' => false,
 					                      'tested' => false ,
-					                      'requires' => true, 
-					                      'rating' => true, 
-					                      'downloaded' => true, 
-					                      'downloadlink' => true, 
-					                      'last_updated' => true, 
-					                      'homepage' => false, 
-					                      'tags' => true ) 
+					                      'requires' => true,
+					                      'rating' => true,
+					                      'downloaded' => true,
+					                      'downloadlink' => true,
+					                      'last_updated' => true,
+					                      'homepage' => false,
+					                      'tags' => true )
 				     );
-	
+
 	$r = wp_parse_args( $args, $defaults );
-	
+
 	$plugins_template = new Thaim_Utilities_WP_Org_Api_Template( $r );
-	
+
 	return apply_filters( 'thaim_utitilities_has_plugins', $plugins_template->has_plugins(), $plugins_template );
 }
 
@@ -151,7 +151,7 @@ function thaim_utitilities_plugin_name() {
 
 	function thaim_utitilities_get_plugin_name() {
 		global $plugins_template;
-		
+
 		return apply_filters('thaim_utitilities_get_plugin_name', esc_html( $plugins_template->plugin->name ) );
 	}
 
@@ -164,7 +164,7 @@ function thaim_utitilities_plugin_slug() {
 
 		return apply_filters('thaim_utitilities_get_plugin_slug', esc_html( $plugins_template->plugin->slug ) );
 	}
-	
+
 function thaim_utitilities_plugin_version() {
 	echo thaim_utitilities_get_plugin_version();
 }
@@ -173,8 +173,8 @@ function thaim_utitilities_plugin_version() {
 		global $plugins_template;
 
 		return apply_filters('thaim_utitilities_get_plugin_version', $plugins_template->plugin->version );
-	}	
-	
+	}
+
 function thaim_utitilities_plugin_requires() {
 	echo thaim_utitilities_get_plugin_requires();
 }
@@ -194,56 +194,58 @@ function thaim_utitilities_plugin_last_active() {
 		return apply_filters( 'thaim_utitilities_plugin_last_active', bp_core_time_since( $plugins_template->plugin->last_updated . ' 00:00:00' ) );
 	}
 }
-	
+
 function thaim_utitilities_plugin_rating() {
 	echo thaim_utitilities_get_plugin_rating();
 }
 
 	function thaim_utitilities_get_plugin_rating() {
 		global $plugins_template;
-		
+
 		$ratings = $plugins_template->plugin->rating;
 		$num_ratings = $plugins_template->plugin->num_ratings;
-		
+
 		$ratings = ( $ratings / 100 ) * 5;
 		$rating = $ratings;
-		
+
 		$output = '<div class="thaim-rating-container">' . sprintf( __( 'Average of %s stars out of %s votes', 'thaim-utilities'), esc_html( $ratings ), esc_html( $num_ratings ) );
 		$output .= '<ul class="thaim-rating">';
-		
+
 		for ( $i = 1 ; $i <= 5; $i++ ){
-			
-			if( $rating >= 1 )
-				$icon = '&#xe08f;';
-			elseif( $rating > 0 )
-				$icon = '&#xe090;';
-			else
-				$icon = '&#xe08a;';
-			
-			$output .= '<li><span aria-hidden="true" data-icon="'.$icon.'"></span></li>';
-			
-			$rating -= 1; 
-			
+
+			if ( $rating >= 1 ) {
+				$icon = '<span class="dashicons dashicons-star-filled"></span>';
+			} elseif ( $rating > 0 ) {
+				$icon = '<span class="dashicons dashicons-star-half"></span>';
+			} else {
+				$icon = '<span class="dashicons dashicons-star-empty"></span>';
+			}
+
+			$output .= '<li>' . $icon . '</li>';
+
+			$rating -= 1;
+
 		}
-		
+
 		$output .= '</ul></div>';
 
 		return apply_filters('thaim_utitilities_get_plugin_rating', $output );
 	}
-	
+
 function thaim_utitilities_plugin_type() {
 	global $plugins_template;
-	
+
 	$tags = $plugins_template->plugin->tags;
 
 	if ( empty( $tags['buddypress'] ) && strpos( strtolower( $plugins_template->plugin->short_description ), 'buddypress' ) !== false ) {
 		$tags['buddypress'] = 'buddypress';
 	}
-	
-	if ( in_array( 'buddypress', array_map( 'strtolower', $tags ) ) )
-		$output = '<div aria-hidden="true" data-icon="&#xe000;" class="plugin-type buddypress"></div>';
-	else
-		$output = '<div aria-hidden="true" data-icon="&#xe104;" class="plugin-type wordpress"></div>';
+
+	if ( in_array( 'buddypress', array_map( 'strtolower', $tags ) ) ) {
+		$output = '<div class="plugin-type dashicons dashicons-buddypress"></div>';
+	} else {
+		$output = '<div class="plugin-type dashicons dashicons-wordpress"></div>';
+	}
 
 	echo apply_filters('thaim_utitilities_plugin_type', $output );
 }
@@ -254,11 +256,11 @@ function thaim_utitilities_plugin_description() {
 
 	function thaim_utitilities_get_plugin_description() {
 		global $plugins_template;
-		
+
 		$output = '<p class="thaim-short-desc">'. esc_html( $plugins_template->plugin->short_description ) .'</p>';
-		
+
 		$output .= thaim_utitilities_get_plugin_rating();
-		
+
 		return apply_filters('thaim_utitilities_get_plugin_description', $output);
 	}
 
@@ -298,12 +300,12 @@ function thaim_utitilities_plugin_download_link() {
 
 	function thaim_utitilities_get_plugin_download_link() {
 		global $plugins_template;
-		
+
 		$download_link = sprintf( __('<a href="%s" title="Download plugin" class="button">Download</a>', 'thaim-utilities'), esc_url( $plugins_template->plugin->download_link ) );
-		
+
 		return apply_filters('thaim_utitilities_get_plugin_download_link', $download_link );
 	}
-	
+
 function thaim_utitilities_plugin_info_link() {
 	echo thaim_utitilities_get_plugin_info_link();
 }
@@ -340,7 +342,7 @@ class Thaim_Utilities_Github_Api_Template {
 	var $total_git_count;
 
 	function __construct() {
-		
+
 		// Defaults to me !
 		$this->git_user = bp_get_option( 'thaim_list_github_repos', 'imath' );
 
@@ -349,14 +351,14 @@ class Thaim_Utilities_Github_Api_Template {
 			$this->git_count = $this->total_git_count = 0;
 		} else {
 			$gits = array();
-			
+
 			$get_repos = new Thaim_Utilities_Github_API( $this->git_user );
 
 			if ( ! empty( $get_repos->repos ) )
 				$gits = $get_repos->repos;
-			
+
 			$this->gits = $gits;
-			
+
 			$this->git_count = $this->total_git_count = count( $this->gits );
 		}
 	}
@@ -406,9 +408,9 @@ class Thaim_Utilities_Github_Api_Template {
 
 function thaim_utitilities_has_gits() {
 	global $gits_template;
-	
+
 	$gits_template = new Thaim_Utilities_Github_Api_Template();
-	
+
 	return apply_filters( 'thaim_utitilities_has_gits', $gits_template->has_gits(), $gits_template );
 }
 
@@ -439,7 +441,7 @@ function thaim_utitilities_git_icon() {
 	function thaim_utitilities_get_git_icon() {
 		global $gits_template;
 
-		return '<div aria-hidden="true" data-icon="&#xe0fd;" class="plugin-type github"></div>'; 
+		return '<div class="plugin-type github custom-dashicons custom-dashicons-github"></div>';
 	}
 
 function thaim_utitilities_git_name() {
@@ -496,12 +498,13 @@ function thaim_utilities_display_stargazers() {
 
 		$stars = absint( $gits_template->git['stargazers'] );
 
-		if( $stars >= 1 )
-			$icon = '&#xe08f;';
-		else
-			$icon = '&#xe08a;';
-			
-		$output = '<p class="downloaded"><span aria-hidden="true" data-icon="' .$icon. '" class="git-icons"></span> <span>' . $stars . '</span></p>';
+		if ( $stars >= 1 ) {
+			$icon = '<span class="dashicons dashicons-star-filled"></span>';
+		} else {
+			$icon = '<span class="dashicons dashicons-star-empty"></span>';
+		}
+
+		$output = '<p class="downloaded">' .$icon . ' <span>' . esc_html( $stars ) . '</span></p>';
 
 		return apply_filters( 'thaim_utilities_get_display_stargazers', $output );
 	}
@@ -514,13 +517,14 @@ function thaim_utilities_display_watchers() {
 		global $gits_template;
 
 		$watchers = absint( $gits_template->git['watchers'] );
-		
-		if( $watchers >= 1 )
-			$icon = '&#xe077;';
-		else
-			$icon = '&#xe07a;';
-			
-		$output = '<p class="downloaded"><span aria-hidden="true" data-icon="' .$icon. '" class="git-icons"></span> <span>' . $watchers . '</span></p>';
+
+		if ( $watchers >= 1 ) {
+			$icon = '<span class="dashicons dashicons-visibility"></span>';
+		} else {
+			$icon = '<span class="dashicons dashicons-hidden"></span>';
+		}
+
+		$output = '<p class="downloaded">' .$icon. ' <span>' . esc_html( $watchers ) . '</span></p>';
 
 		return apply_filters( 'thaim_utilities_get_display_watchers', $output );
 	}
@@ -538,6 +542,6 @@ function thaim_utilities_activity_view_activity() {
 		$time_since = apply_filters_ref_array( 'bp_activity_time_since', array( '<span class="time-since">' . bp_core_time_since( $activities_template->activity->date_recorded ) . '</span>', &$activities_template->activity ) );
 
 		$link = sprintf( '<a href="%1$s" class="permactivity view activity-time-since" title="%2$s">%3$s</a>', bp_activity_get_permalink( $activities_template->activity->id, $activities_template->activity ), esc_attr__( 'View Activity', 'thaim-utilities' ), $time_since );
-		
+
 		return apply_filters( 'thaim_activity_view_activity', $link );
 	}
