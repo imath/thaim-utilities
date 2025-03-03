@@ -1,6 +1,8 @@
 thaim utilities is imath's theme utilites!
 ==========================================
 
+**These utilities are no more maintained & the repo is archived.**
+
 my "Thaim" theme used to include some features that should be in a plugin, this is the plugin :)
 It's a BuddyPress plugin. On my blog, i've used BuddyPress in a 1 guy (me!) community.
 The goal is to enjoy BuddyPress member's page in order to replace the WordPress author page.
